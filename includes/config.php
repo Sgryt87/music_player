@@ -1,5 +1,6 @@
 <?php
 ob_start();
+session_start();
 //x$timezone = date_default_timezone_get('America/Chicago');
 $con = mysqli_connect('localhost', 'root', 'root', 'music_player');
 if (mysqli_connect_errno()) {

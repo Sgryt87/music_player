@@ -121,22 +121,15 @@ class Account
     {
         echo $username . ' ' . $password;
         $login = mysqli_query($this->con, "SELECT * FROM users WHERE username = '$username'");
-        if ($login) {
-            echo 'yes';
-        } else {
-            'no';
-        }
-        $row = mysqli_fetch_assoc($login);
-       echo $user_db_name = $row['username'];
-        echo $user_db_password = $row['password'];
 
-        var_dump($row);
-        if ($user_db_name === $username && password_verify($user_db_password, $password)) {
-            die();
+        $row = mysqli_fetch_assoc($login);
+        $user_db_name = $row['username'];
+        $user_db_password = $row['password'];
+
+        if ($user_db_name === $username && password_verify($password, $user_db_password)) {
             return true;
         } else {
             array_push($this->errorArray, Constant::$loginFailed);
-
             return false;
         }
     }
