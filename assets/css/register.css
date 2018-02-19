@@ -4,6 +4,7 @@ html, body {
     height: 100%;
 }
 
+/*REGISTER*/
 #background {
     background-color: #000;
     background-image: url("../images/bg.jpg");
@@ -47,7 +48,7 @@ html, body {
     color: #fff;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
+:-ms-input-placeholder { /* Microsoft Edge */
     color: #fff;
 }
 
@@ -79,7 +80,8 @@ html, body {
 #inputContainer label {
     color: #a0a0a0;
     font-size: 13px;
-    margin-top: 15px;;;
+    margin-top: 15px;
+    display: block;
 }
 
 #inputContainer button {
@@ -105,8 +107,180 @@ html, body {
 .hasAccountText span {
     font-weight: bold;
     font-size: 12px;
+    cursor: pointer;
 }
 
 .hasAccountText {
     text-align: center;
+}
+
+#loginText {
+    padding: 45px;
+    display: table-cell;
+}
+
+#loginText h1 {
+    color: #07d159;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+#loginText h2 {
+    margin: 36px 0;
+}
+
+#loginText ul {
+    padding: 0;
+}
+
+#loginText ul li {
+    font-size: 20px;
+    list-style-type: none;
+    padding: 10px;
+}
+
+#inputContainer .errorMessage {
+    color: #07d159 !important;
+    display: block;
+    font-size: 12px;
+}
+
+/*INDEX*/
+#nowPlayingBarContainer {
+    width: 100%;
+    min-width: 620px;
+    background-color: #282828;
+    position: fixed;
+    bottom: 0;
+}
+
+#nowPlayingBar {
+    display: flex;
+    height: 90px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+#nowPlayingLeft, #nowPlayingRight {
+    width: 30%;
+    min-width: 180px;
+}
+
+#nowPlayingRight {
+    position: relative;
+    margin-top: 16px;
+}
+
+#nowPlayingCenter {
+    width: 40%;
+    max-width: 700px;
+    flex-direction: column; /*<---*/
+    display: flex;
+    align-items: center;
+}
+
+#nowPlayingBar .content {
+    width: 100%;
+    height: 57px;
+}
+
+.playerControls .buttons {
+    margin: 0 auto;
+    display: table;
+}
+
+.controlButton {
+    vertical-align: middle;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+}
+
+.controlButton i {
+    width: 20px;
+    height: 20px;
+    color: #a0a0a0;
+    font-size: 250%;
+    padding: 0 10%;
+}
+
+.controlButton .play i,
+.controlButton .pause i {
+    width: 32px;
+    height: 32px;
+    font-size: 400%;
+}
+
+.controlButton:hover {
+    cursor: pointer;
+}
+
+.progressTime {
+    color: #a0a0a0;
+    font-size: 11px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.playbackBar {
+    display: flex;
+}
+
+.progressBar {
+    width: 100%;
+    height: 12px;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.progressBarBg {
+    background-color: #404040;
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.progress {
+    background-color: #a0a0a0;
+    height: 4px;
+    width: 0;
+    border-radius: 2px;
+}
+
+.playbackBar .progressBar {
+    margin-top: 4px;
+}
+
+#nowPlayingLeft .albumArtwork {
+    height: 100%;
+    max-width: 57px;
+    margin-right: 15px;
+    float: left;
+    background-size: cover;
+}
+
+#nowPlayingLeft .trackInfo {
+    display: table;
+    color: #fff;
+}
+
+#nowPlayingLeft .trackInfo .trackName {
+    margin: 6px 0;
+    display: inline-block;
+    width: 100%;
+}
+
+#nowPlayingLeft .trackInfo .artistName span {
+    font-size: 12px;
+    color: #a0a0a0;
+}
+
+.volumeBar {
+    width: 180px;
+    position: absolute;
+    right: 0;
+}
+
+.volumeBar .progressBar {
+    width: 125px;
 }

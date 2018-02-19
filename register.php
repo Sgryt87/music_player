@@ -106,6 +106,15 @@ function getInputValue($name)
                 </div>
             </form>
         </div>
+        <div id="loginText">
+            <h1>Get great music, right now!</h1>
+            <h2>Listen to loads of songs for free</h2>
+            <ul>
+                <li><span style="color: #07d159;">&#9834;</span> Discover music you'll fall in love with</li>
+                <li><span style="color: #07d159;">&#9834;</span> Create your own playlists</li>
+                <li><span style="color: #07d159;">&#9834;</span> Follow artists to keep up to date</li>
+            </ul>
+        </div>
     </div>
 </div>
 <script src="assets/js/jquery-3.3.1.min.js"></script>
