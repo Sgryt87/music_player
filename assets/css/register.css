@@ -145,7 +145,14 @@ html, body {
     font-size: 12px;
 }
 
-/*INDEX*/
+/*==INDEX==*/
+body {
+    background: #181818;
+    font-size: 14px;
+    min-width: 720px;
+}
+
+/*BAR*/
 #nowPlayingBarContainer {
     width: 100%;
     min-width: 620px;
@@ -283,4 +290,112 @@ html, body {
 
 .volumeBar .progressBar {
     width: 125px;
+}
+
+/*TOP CONTAINER*/
+
+#topContainer {
+    min-height: 100%;
+    width: 100%;
+}
+
+#navBarContainer {
+    background: #000;
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.navBar {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
+
+.logo {
+    margin-bottom: 15px;
+}
+
+.logo i {
+    width: 32px;
+    color: #fff;
+    font-size: 300%;
+}
+
+.navBar .group {
+    border-top: 1px solid #a0a0a0;
+    padding: 10px 0;
+}
+
+.navItem {
+    padding: 7px;
+    font-size: 16px;
+    font-weight: 700;
+    display: block;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.navItemLink {
+    color: #a0a0a0;
+    text-decoration: none;
+}
+
+.navItemLink .icon {
+    position: absolute;
+    right: 0;
+    top: 6px;
+    width: 25px;
+}
+
+.navItemLink:hover {
+    color: #ffffff;
+    transition: 0.6s;
+}
+
+/*MAIN VIEW CONTAINER*/
+
+#mainViewContainer {
+    margin-left: 220px;
+    padding-bottom: 90px;
+    width: calc(100% - 220px);
+}
+
+#mainContent {
+    padding: 0 20px;
+}
+
+.pageHeadingBig {
+    padding: 20px;
+    text-align: center;
+    color: #a0a0a0;
+}
+
+.gridViewItem {
+    display: inline-block;
+    margin-right: 20px;
+    width: 29%;
+    max-width: 200px;
+    min-width: 150px;
+    margin-bottom: 20px;
+}
+
+.gridViewItem img {
+    width: 100%;
+}
+
+.gridViewInfo {
+    font-weight: 300;
+    text-align: center;
+    padding: 5px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.gridViewItem a {
+    text-decoration: none;
 }

@@ -2,12 +2,12 @@
 
 class Account
 {
-    private $con;
+    private $conn;
     private $errorArray;
 
-    public function __construct($con)
+    public function __construct($conn)
     {
-        $this->con = $con;
+        $this->conn = $conn;
         $this->errorArray = [];
     }
 
@@ -25,7 +25,7 @@ class Account
         $profilePic = 'assets/images/profile_pics/user.png';
         $date = date('Y-m-d');
 
-        $result = mysqli_query($this->con, "INSERT INTO users VALUES (
+        $result = mysqli_query($this->conn, "INSERT INTO users VALUES (
                                                                         '',
                                                                         '$username',
                                                                         '$firstname',
@@ -55,13 +55,13 @@ class Account
     private function validateUsername($username)
     {
         if (strlen($username) > 25 || strlen($username) < 3) {
-            array_push($this->errorArray, Constant::$usernameCharacters);
+            array_push($this->errorArray, constant::$usernameCharacters);
             return;
         }
 
-        $checkUserNameQuery = mysqli_query($this->con, "SELECT username FROM users WHERE username = '$username'");
+        $checkUserNameQuery = mysqli_query($this->conn, "SELECT username FROM users WHERE username = '$username'");
         if (mysqli_num_rows($checkUserNameQuery) > 0) {
-            array_push($this->errorArray, Constant::$usernameTaken);
+            array_push($this->errorArray, constant::$usernameTaken);
             return;
         }
     }
@@ -69,7 +69,7 @@ class Account
     private function validateFirstname($firstname)
     {
         if (strlen($firstname) > 25 || strlen($firstname) < 2) {
-            array_push($this->errorArray, Constant::$firstNameCharacters);
+            array_push($this->errorArray, constant::$firstNameCharacters);
             return;
         }
     }
@@ -77,7 +77,7 @@ class Account
     private function validateLastname($lastname)
     {
         if (strlen($lastname) > 25 || strlen($lastname) < 2) {
-            array_push($this->errorArray, Constant::$lastNameCharacters);
+            array_push($this->errorArray, constant::$lastNameCharacters);
             return;
         }
     }
@@ -85,16 +85,16 @@ class Account
     private function validateEmails($email, $email2)
     {
         if ($email != $email2) {
-            array_push($this->errorArray, Constant::$emailsDoNotMatch);
+            array_push($this->errorArray, constant::$emailsDoNotMatch);
             return;
         }
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            array_push($this->errorArray, Constant::$emailInvalid);
+            array_push($this->errorArray, constant::$emailInvalid);
             return;
         }
-        $checkEmailNameQuery = mysqli_query($this->con, "SELECT email FROM users WHERE email = '$email'");
+        $checkEmailNameQuery = mysqli_query($this->conn, "SELECT email FROM users WHERE email = '$email'");
         if (mysqli_num_rows($checkEmailNameQuery) > 0) {
-            array_push($this->errorArray, Constant::$emailTaken);
+            array_push($this->errorArray, constant::$emailTaken);
             return;
         }
     }
@@ -102,15 +102,15 @@ class Account
     private function validatePassword($password, $password2)
     {
         if ($password != $password2) {
-            array_push($this->errorArray, Constant::$passwordDoNotMatch);
+            array_push($this->errorArray, constant::$passwordDoNotMatch);
             return;
         }
         if (preg_match('/[^A-Za-z0-9]/', $password)) {
-            array_push($this->errorArray, Constant::$passwordNotAlphanumeric);
+            array_push($this->errorArray, constant::$passwordNotAlphanumeric);
             return;
         }
         if (strlen($password) > 25 || strlen($password) < 5) {
-            array_push($this->errorArray, Constant::$passwordCharacters);
+            array_push($this->errorArray, constant::$passwordCharacters);
             return;
         }
     }
@@ -119,8 +119,7 @@ class Account
 
     public function login($username, $password)
     {
-        echo $username . ' ' . $password;
-        $login = mysqli_query($this->con, "SELECT * FROM users WHERE username = '$username'");
+        $login = mysqli_query($this->conn, "SELECT * FROM users WHERE username = '{$username}'"); // ERROR todo
 
         $row = mysqli_fetch_assoc($login);
         $user_db_name = $row['username'];
@@ -129,7 +128,7 @@ class Account
         if ($user_db_name === $username && password_verify($password, $user_db_password)) {
             return true;
         } else {
-            array_push($this->errorArray, Constant::$loginFailed);
+            array_push($this->errorArray, constant::$loginFailed);
             return false;
         }
     }

@@ -1,7 +1,6 @@
 <?php
-include "includes/config.php";
-include "includes/classes/Account.php";
-include "includes/classes/Constant.php";
+include "init.php";
+
 global $con;
 $account = new Account($con);
 
